@@ -32,9 +32,9 @@ class CdkPyLambdaSqsDynamoStack(core.Stack):
 
         # Read function
         readFunction = lmdb.Function(self, 'LSD-Process-Function',
-                                           runtime=lmdb.Runtime.PYTHON_3_8,
-                                           code=lmdb.Code.from_asset('lambda'),
-                                           handler='main.handler')
+                                     runtime=lmdb.Runtime.PYTHON_3_8,
+                                     code=lmdb.Code.from_asset('lambda'),
+                                     handler='main.handler')
 
         readIntegration = apigw.LambdaIntegration(readFunction)
         api.root.add_resource('read').add_method('GET', readIntegration)
