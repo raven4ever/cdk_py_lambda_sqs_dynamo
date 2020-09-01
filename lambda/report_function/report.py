@@ -1,8 +1,12 @@
 import json
-
+import boto3
 
 def handler(event, context):
-    print('request: {}'.format(json.dumps(event)))
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('movies_table')
+
+
+
     return {
         'statusCode': 200,
         'headers': {
